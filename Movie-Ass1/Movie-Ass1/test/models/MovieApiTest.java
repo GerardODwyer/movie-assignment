@@ -7,15 +7,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import controllers.MovieAPI;
-import static models.Fixtures.users;
-import static models.Fixtures.activities;
-import static models.Fixtures.locations;
+
 
 public class MovieApiTest {
 
-
-	
-	{
 		  private MovieAPI movie;
 
 		  @Before
@@ -37,7 +32,7 @@ public class MovieApiTest {
 		  @Test
 		  public void testUser()
 		  {
-		    assertEquals (user.length, Movie.getUser().size());
+		    assertEquals (User.length, Movie.getUser().size());
 		    Movie.createUser("Ger", "O Dywer",52, "student", "m");
 		    assertEquals (user.length+1, Movie.getUser().size());
 		    assertEquals (user[0], Movie.getUserByfirstName(user[0].firstName));

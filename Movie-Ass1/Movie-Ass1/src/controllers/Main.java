@@ -37,7 +37,69 @@ public class Main
     
     
     }
-  
-  
-  
 }
+
+
+
+
+
+
+
+
+
+
+
+//do
+//{
+ //   System.out.println("-----------------------------");
+   // System.out.println("which option would you like to perform");
+   // System.out.println("1.add user");
+   // System.out.println("2.remove user");
+   // System.out.println("3.add movie");
+   // System.out.println("4.remove movie");
+   // System.out.println("5.exit");
+   // System.out.println("-----------------------------");
+   // System.out.println("Please select an option: ");     
+   // choice = EasyScanner.nextInt();
+
+   // switch (choice)
+   // {
+
+      //  case 1:
+       // do
+      //  {
+          
+
+        //    switch (choice2)
+        //    {
+//
+        //        case 1:
+              //  break;
+              //  case 2:
+              //  break;
+
+              //  case 3:
+              
+             //   break;
+                
+            //    default:
+              //  System.out.println("Invalid choice. Please choose again: ");
+         //   }
+      //  }while (choice2 != 5);
+
+   
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

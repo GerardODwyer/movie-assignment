@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.junit.Test;
 
-import static models.Fixtures.users;
+
 
 public class UserTest
 {
@@ -22,17 +22,7 @@ public class UserTest
     assertEquals ("gender",               bob.gender);   
   }
 
-  @Test
-  public void testIds()
-  {
-    Set<Long> ids = new HashSet<>();
-    for (User bob : users)
-    {
-      ids.add(bob.id);
-    }
-    assertEquals (users.length, ids.size());
-  }
-
+ 
   @Test
   public void testToString()
   {
