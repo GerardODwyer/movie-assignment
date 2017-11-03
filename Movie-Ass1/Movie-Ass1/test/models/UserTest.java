@@ -10,25 +10,25 @@ import static models.Fixtures.users;
 
 public class UserTest
 {
-  User bob = new User ("Bob", "Bobby", 52, "clerk", "male");
+  User bob = new User ("Bob", "Bobby", "52", "clerk", "male");
 
   @Test
   public void testCreate()
   {
-    assertEquals ("Bob",                Bob.firstName);
-    assertEquals ("Bobby",             Bob.lastName);
-    assertEquals (52,                          Bob.age);
-    assertEquals ("clerk",           Bob.occupation);   
-    assertEquals ("gender",               Bob.gender);   
+    assertEquals ("Bob",                bob.firstName);
+    assertEquals ("Bobby",             bob.lastName);
+    assertEquals ("52",                          bob.age);
+    assertEquals ("clerk",           bob.occupation);   
+    assertEquals ("gender",               bob.gender);   
   }
 
   @Test
   public void testIds()
   {
     Set<Long> ids = new HashSet<>();
-    for (User user : users)
+    for (User bob : users)
     {
-      ids.add(user.id);
+      ids.add(bob.id);
     }
     assertEquals (users.length, ids.size());
   }
@@ -36,16 +36,16 @@ public class UserTest
   @Test
   public void testToString()
   {
-    assertEquals ("User{" + Bob.id + ", Bob, Bobby,52, clerk,male}", Bob.toString());
+    assertEquals ("User{" + bob.id + ", Bob, Bobby,52, clerk,male}", bob.toString());
   }
   @Test
   public void testEquals()
   {
-    User homer2 = new User ("Bob", "Bobby",52, "clerk",  "male"); 
-    User bart   = new User ("Beth", "Smith",52 "maid",  "female"); 
+    User Bob2 = new User ("Bob", "Bobby","52", "clerk",  "male"); 
+    User Beth   = new User ("Beth", "Smith","52", "maid",  "female"); 
 
-    assertEquals(Bob, Bob);
-    assertEquals(Bob, Bob2);
-    assertNotEquals(Bob, Beth);
+    assertEquals(bob, bob);
+    assertEquals(bob, Bob2);
+    assertNotEquals(bob, Beth);
   } 
 }

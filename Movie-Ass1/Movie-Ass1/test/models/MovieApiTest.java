@@ -16,12 +16,12 @@ public class MovieApiTest {
 
 	
 	{
-		  private MovieAPI pacemaker;
+		  private MovieAPI movie;
 
 		  @Before
 		  public void setup()
 		  {
-		    pacemaker = new MovieAPI();
+		    movie = new MovieAPI();
 		    for (User user : users)
 		    {
 		      Movie.createUser(user.firstName, user.lastName,user.age, user.occupation, user.gender);
@@ -31,23 +31,23 @@ public class MovieApiTest {
 		  @After
 		  public void tearDown()
 		  {
-		    pacemaker = null;
+		    movie = null;
 		  }
 
 		  @Test
 		  public void testUser()
 		  {
-		    assertEquals (users.length, Movie.getUsers().size());
-		    Movie.createUser("Bob", "Bobby",52, "clerk", "male");
-		    assertEquals (users.length+1, Movie.getUsers().size());
-		    assertEquals (users[0], Movie.getUserByfirstName(users[0].firstName));
+		    assertEquals (user.length, Movie.getUser().size());
+		    Movie.createUser("Ger", "O Dywer",52, "student", "m");
+		    assertEquals (user.length+1, Movie.getUser().size());
+		    assertEquals (user[0], Movie.getUserByfirstName(user[0].firstName));
 		  }  
 
 		  @Test
 		  public void testUsers()
 		  {
-		    assertEquals (users.length, Movie.getUsers().size());
-		    for (User user: users)
+		    assertEquals (user.length, Movie.getUser().size());
+		    for (User user: user)
 		    {
 		      User eachUser = Movie.getUserByfirstName(user.firstName);
 		      assertEquals (user, eachUser);
@@ -58,54 +58,55 @@ public class MovieApiTest {
 		  @Test
 		  public void testDeleteUsers()
 		  {
-		    assertEquals (users.length, Movie.getUsers().size());
-		    User marge = Movie.getUserByfirstName("Ross");
+		    assertEquals (user.length, Movie.getUser().size());
+		    User Ger = Movie.getUserByfirstName("Ger");
 		    Movie.deleteUser(Ross.id);
-		    assertEquals (users.length-1, pacemaker.getUsers().size());    
+		    assertEquals (user.length-1, movie.getUser().size());    
 		  }  
 		  
 		  @Test
 		  public void testAddActivity()
 		  {
-		    User marge = pacemaker.getUserByEmail("marge@simpson.com");
-		    Activity activity = pacemaker.createActivity(marge.id, activities[0].type, activities[0].location, activities[0].distance);
-		    Activity returnedActivity = pacemaker.getActivity(activity.id);
+		    User Ger = Movie.getUserByfirstName("Beth");
+		    Rateing activity = M.createActivity(Beth.id, activities[0].type, activities[0].Rateings, activities[0].distance);
+		    Activity returnedActivity = movie.getActivity(activity.id);
 		    assertEquals(activities[0],  returnedActivity);
 		    assertNotSame(activities[0], returnedActivity);
 		  }
 		  
 		  @Test
-		  public void testAddActivityWithSingleLocation()
+		  public void testAddActivityWithSingleRateings()
 		  {
-		    User marge = pacemaker.getUserByEmail("marge@simpson.com");
-		    Long activityId = pacemaker.createActivity(marge.id, activities[0].type, activities[0].location, activities[0].distance).id;
+		    User marge = movie.getUserByfirstName("Beth");
+		    Long activityId = movie.createActivity(.id, movie[0].type, movie[0].location, movie[0].distance).id;
 
-		    pacemaker.addLocation(activityId, locations[0].latitude, locations[0].longitude);
+		    movie.addLocation(activityId, Rateings[0].latitude, Rateings[0].longitude);
 
-		    Activity activity = pacemaker.getActivity(activityId);
-		    assertEquals (1, activity.route.size());
-		    assertEquals(0.0001, locations[0].latitude,  activity.route.get(0).latitude);
-		    assertEquals(0.0001, locations[0].longitude, activity.route.get(0).longitude);   
+		    Movie movie = movie.getMovie(movieId);
+		    assertEquals (1, movie.route.size());
+		    assertEquals(0.0001, rateings[0].userid,  movie.route.get(0).userid);
+		    assertEquals(0.0001, rateings[0].movieid, movie.route.get(0).movieid);   
 		  }
 		  
 		  @Test
-		  public void testAddActivityWithMultipleLocation()
+		  public void testAddActivityWithMultipleRateings()
 		  {
-		    User marge = pacemaker.getUserByEmail("marge@simpson.com");
-		    Long activityId = pacemaker.createActivity(marge.id, activities[0].type, activities[0].location, activities[0].distance).id;
+		    User marge = movie.getUserByfirstName("marge@simpson.com");
+		    Long activityId = movie.createActivity(marge.id, rateings[0].type, rateings[0].location, rateings[0].distance).id;
 
-		    for (Location location : locations)
+		    for (Rateings rateings : rateings)
 		    {
-		      pacemaker.addLocation(activityId, location.latitude, location.longitude);      
+		    	movie.addMovie(activityId, rateings.latitude, rateings.longitude);      
 		    }
 
-		    Activity activity = pacemaker.getActivity(activityId);
-		    assertEquals (locations.length, activity.route.size());
+		    Movie activity = movie.getmovie(activityId);
+		    assertEquals (Rateings.length, activity.route.size());
 		    int i = 0;
-		    for (Location location : activity.route)
+		    for (Rateings rateings : activity.route)
 		    {
-		      assertEquals(location, locations[i]);
+		      assertEquals(rateings, rateings[i]);
 		      i++;
 		    }
 		  } 
 		}
+	
